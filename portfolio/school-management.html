@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System - Benjamin Dakpo Portfolio</title>
+    <meta name="description" content="A comprehensive school management platform built with Next.js and Prisma, featuring authentication, attendance tracking, grading system, and role-based dashboards.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="portfolio-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <img src="../images/logo/bd-logo.png" alt="Benjamin Dakpo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Detail Section -->
+    <section class="portfolio-detail">
+        <div class="container">
+            <div class="back-link">
+                <a href="../index.html#portfolio" class="btn btn-secondary">← Back to Portfolio</a>
+            </div>
+            
+            <div class="project-header">
+                <div class="project-icon">📚</div>
+                <div class="project-info">
+                    <h1 class="project-title">School Management System</h1>
+                    <p class="project-subtitle">Comprehensive Educational Platform</p>
+                    <div class="project-meta">
+                        <span class="meta-item">Next.js</span>
+                        <span class="meta-item">Prisma</span>
+                        <span class="meta-item">PostgreSQL</span>
+                        <span class="meta-item">TypeScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-gallery">
+                <div class="main-image">
+                    <img src="../images/school-management/Welcome Page (1).png" alt="Nera School Management System Welcome Page" onclick="openImageModal(this.src, this.alt)">
+                </div>
+                <div class="gallery-thumbnails">
+                    <img src="../images/school-management/Attendance Management (1).png" alt="Attendance Management Interface" onclick="openImageModal(this.src, this.alt)">
+                    <img src="../images/school-management/Student Dashboard (1).png" alt="Student Dashboard" onclick="openImageModal(this.src, this.alt)">
+                    <img src="../images/school-management/Assignment and Grading (1).png" alt="Teacher Portal - Assignments & Grading" onclick="openImageModal(this.src, this.alt)">
+                    <img src="../images/school-management/Admin Console.png" alt="Admin Console Dashboard" onclick="openImageModal(this.src, this.alt)">
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            The School Management System is a comprehensive educational platform designed to streamline administrative tasks, enhance communication between stakeholders, and provide real-time insights into academic performance. Built with modern web technologies, this system serves as a complete solution for educational institutions of all sizes.
+                        </p>
+
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li><strong>Multi-Role Authentication:</strong> Secure login system for administrators, teachers, students, and parents</li>
+                            <li><strong>Student Management:</strong> Complete student profiles, enrollment tracking, and academic records</li>
+                            <li><strong>Attendance System:</strong> Digital attendance tracking with automated notifications</li>
+                            <li><strong>Grading System:</strong> Comprehensive gradebook with automated calculations and report generation</li>
+                            <li><strong>Fee Management:</strong> Online fee collection, payment tracking, and financial reporting</li>
+                            <li><strong>Communication Hub:</strong> Built-in messaging system for announcements and notifications</li>
+                            <li><strong>Analytics Dashboard:</strong> Real-time insights into academic performance and institutional metrics</li>
+                        </ul>
+
+                        <h3>Technical Implementation</h3>
+                        <p>
+                            The system is built using Next.js for the frontend framework, providing server-side rendering and optimal performance. Prisma serves as the ORM for database operations, ensuring type safety and efficient data management. The PostgreSQL database handles complex relational data with high performance and reliability.
+                        </p>
+
+                        <h3>Challenges & Solutions</h3>
+                        <p>
+                            One of the major challenges was implementing role-based access control while maintaining a seamless user experience. I solved this by creating a flexible permission system that dynamically renders UI components based on user roles. Another challenge was optimizing database queries for large datasets, which was addressed through strategic indexing and query optimization.
+                        </p>
+
+                        <h3>Results & Impact</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-number">85%</div>
+                                <div class="result-label">Reduction in Administrative Time</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">500+</div>
+                                <div class="result-label">Students Managed</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">99.9%</div>
+                                <div class="result-label">System Uptime</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">40%</div>
+                                <div class="result-label">Improvement in Communication</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div class="info-card">
+                            <h3>Project Details</h3>
+                            <div class="detail-item">
+                                <strong>Duration:</strong> 4 months
+                            </div>
+                            <div class="detail-item">
+                                <strong>Team Size:</strong> 3 developers
+                            </div>
+                            <div class="detail-item">
+                                <strong>My Role:</strong> Full-stack Developer
+                            </div>
+                            <div class="detail-item">
+                                <strong>Status:</strong> Live & Maintained
+                            </div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <h3>Technology Stack</h3>
+                            <div class="tech-category">
+                                <h4>Frontend</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Next.js</span>
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">Tailwind CSS</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Backend</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Prisma</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">NextAuth.js</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Deployment</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Vercel</span>
+                                    <span class="tech-tag">Railway</span>
+                                    <span class="tech-tag">Cloudinary</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a href="#" class="btn btn-primary">View Live Demo</a>
+                            <a href="#" class="btn btn-secondary">View Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Benjamin Dakpo. All rights reserved. | Crafted with passion and code ❤️</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="portfolio-script.js"></script>
+</body>
+</html>

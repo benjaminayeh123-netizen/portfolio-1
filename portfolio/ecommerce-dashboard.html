@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Dashboard - Benjamin Dakpo Portfolio</title>
+    <meta name="description" content="Intuitive admin dashboard for e-commerce management, featuring real-time analytics, inventory management, and user-friendly interface.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="portfolio-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <img src="../images/logo/bd-logo.png" alt="Benjamin Dakpo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#services">Services</a></li>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Detail Section -->
+    <section class="portfolio-detail">
+        <div class="container">
+            <div class="back-link">
+                <a href="../index.html#portfolio" class="btn btn-secondary">← Back to Portfolio</a>
+            </div>
+            
+            <div class="project-header">
+                <div class="project-icon">🛒</div>
+                <div class="project-info">
+                    <h1 class="project-title">E-Commerce Dashboard</h1>
+                    <p class="project-subtitle">Advanced Analytics & Management Platform</p>
+                    <div class="project-meta">
+                        <span class="meta-item">React</span>
+                        <span class="meta-item">Analytics</span>
+                        <span class="meta-item">UI/UX</span>
+                        <span class="meta-item">Responsive</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-gallery">
+                <div class="main-image">
+                    <img src="../images/ecommerce-dashboard/overview.png" alt="E-Commerce Dashboard Overview" onclick="openImageModal(this.src, this.alt)">
+                </div>
+                <div class="gallery-thumbnails">
+                    <img src="../images/ecommerce-dashboard/analytics.png" alt="Analytics Dashboard" onclick="openImageModal(this.src, this.alt)">
+                    <img src="../images/ecommerce-dashboard/inventory.png" alt="Inventory Management" onclick="openImageModal(this.src, this.alt)">
+                    <img src="../images/ecommerce-dashboard/orders.png" alt="Order Management" onclick="openImageModal(this.src, this.alt)">
+                    <img src="../images/ecommerce-dashboard/mobile.png" alt="Mobile Dashboard" onclick="openImageModal(this.src, this.alt)">
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <h2>Project Overview</h2>
+                        <p>
+                            This comprehensive e-commerce dashboard was designed to streamline business operations for online retailers. The platform provides real-time insights into sales performance, inventory management, customer behavior, and order processing, all within an intuitive and visually appealing interface.
+                        </p>
+
+                        <h3>Key Features</h3>
+                        <ul class="feature-list">
+                            <li><strong>Real-time Analytics:</strong> Live sales data, customer metrics, and performance indicators</li>
+                            <li><strong>Inventory Management:</strong> Complete stock tracking with low-stock alerts and automated reordering</li>
+                            <li><strong>Order Processing:</strong> Streamlined order management with status tracking and fulfillment workflows</li>
+                            <li><strong>Customer Insights:</strong> Detailed customer profiles, purchase history, and behavior analytics</li>
+                            <li><strong>Financial Reports:</strong> Comprehensive revenue tracking, profit analysis, and tax reporting</li>
+                            <li><strong>Product Management:</strong> Easy product catalog management with bulk operations</li>
+                            <li><strong>Mobile Responsive:</strong> Fully functional on all devices with touch-optimized interface</li>
+                        </ul>
+
+                        <h3>Technical Implementation</h3>
+                        <p>
+                            Built with React for the frontend framework, the dashboard utilizes modern state management with Redux for complex data handling. Chart.js was integrated for data visualization, while custom hooks were created for real-time data updates. The backend API was designed with RESTful principles and includes WebSocket connections for live updates.
+                        </p>
+
+                        <h3>User Experience Design</h3>
+                        <p>
+                            The dashboard was designed with a focus on usability and efficiency. User research revealed that merchants needed quick access to key metrics, so the interface prioritizes the most important information. Customizable widgets allow users to personalize their dashboard view, while intuitive navigation ensures even new users can find what they need quickly.
+                        </p>
+
+                        <h3>Performance Optimization</h3>
+                        <p>
+                            The application was optimized for performance with lazy loading, code splitting, and efficient data caching. Real-time updates are handled through WebSocket connections to minimize server load, while the frontend uses virtual scrolling for large data sets. The result is a fast, responsive interface that can handle thousands of products and orders.
+                        </p>
+
+                        <h3>Results & Impact</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-number">50%</div>
+                                <div class="result-label">Faster Order Processing</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">30%</div>
+                                <div class="result-label">Reduction in Admin Time</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">99.9%</div>
+                                <div class="result-label">System Uptime</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-number">85%</div>
+                                <div class="result-label">User Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div class="info-card">
+                            <h3>Project Details</h3>
+                            <div class="detail-item">
+                                <strong>Duration:</strong> 8 weeks
+                            </div>
+                            <div class="detail-item">
+                                <strong>Team Size:</strong> 4 developers
+                            </div>
+                            <div class="detail-item">
+                                <strong>My Role:</strong> Frontend Lead & UX Designer
+                            </div>
+                            <div class="detail-item">
+                                <strong>Status:</strong> Live & Maintained
+                            </div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <h3>Technology Stack</h3>
+                            <div class="tech-category">
+                                <h4>Frontend</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Redux</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">Material-UI</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Data & Analytics</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Chart.js</span>
+                                    <span class="tech-tag">D3.js</span>
+                                    <span class="tech-tag">WebSocket</span>
+                                    <span class="tech-tag">REST API</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h4>Tools & Deployment</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Webpack</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">AWS</span>
+                                    <span class="tech-tag">CI/CD</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a href="#" class="btn btn-primary">View Live Demo</a>
+                            <a href="#" class="btn btn-secondary">View Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Benjamin Dakpo. All rights reserved. | Crafted with passion and code ❤️</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="portfolio-script.js"></script>
+</body>
+</html>
