@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Pokédex Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+        .pokemon-interface { 
+            width: 800px; height: 500px; 
+            background: #1a1a1a; 
+            border: 2px solid #00d4ff; 
+            border-radius: 10px; 
+            display: flex;
+            margin: 20px 0;
+            position: relative;
+        }
+        .sidebar { 
+            width: 200px; 
+            background: #2a2a2a; 
+            padding: 20px;
+            color: white;
+        }
+        .main-content { 
+            flex: 1; 
+            padding: 20px; 
+            color: white;
+        }
+        .pokemon-list { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0;
+        }
+        .pokemon-item { 
+            padding: 8px; 
+            cursor: pointer; 
+            border-radius: 4px;
+            margin: 2px 0;
+        }
+        .pokemon-item:hover { 
+            background: #333; 
+        }
+        .pokemon-item.selected { 
+            background: #00d4ff; 
+            color: #000;
+        }
+        .search-bar { 
+            width: 100%; 
+            padding: 8px; 
+            border: 1px solid #555; 
+            border-radius: 4px; 
+            background: #333; 
+            color: white; 
+            margin-bottom: 15px;
+        }
+        .pokemon-name { 
+            font-size: 24px; 
+            font-weight: bold; 
+            margin-bottom: 10px;
+        }
+        .pokemon-number { 
+            color: #888; 
+            font-size: 14px;
+        }
+        .type-tags { 
+            display: flex; 
+            gap: 8px; 
+            margin-bottom: 15px;
+        }
+        .type-tag { 
+            padding: 4px 8px; 
+            border-radius: 12px; 
+            font-size: 12px; 
+            font-weight: bold;
+        }
+        .type-grass { 
+            background: #4CAF50; 
+            color: white;
+        }
+        .type-poison { 
+            background: #9C27B0; 
+            color: white;
+        }
+        .type-fire { 
+            background: #FF5722; 
+            color: white;
+        }
+        .type-flying { 
+            background: #2196F3; 
+            color: white;
+        }
+        .pokemon-image { 
+            width: 200px; 
+            height: 200px; 
+            background: #333; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 48px; 
+            margin-bottom: 15px;
+        }
+        .thumbnails { 
+            display: flex; 
+            gap: 8px;
+        }
+        .thumbnail { 
+            width: 40px; 
+            height: 40px; 
+            background: #333; 
+            border-radius: 4px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 16px;
+        }
+        .stats { 
+            margin-top: 15px;
+        }
+        .stat-item { 
+            display: flex; 
+            justify-content: space-between; 
+            margin: 4px 0;
+        }
+        .moves-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+            gap: 8px; 
+            margin-top: 15px;
+        }
+        .move-button { 
+            padding: 6px 8px; 
+            background: #333; 
+            border: 1px solid #555; 
+            border-radius: 4px; 
+            color: white; 
+            font-size: 10px; 
+            text-align: center; 
+            cursor: pointer;
+        }
+        .move-button:hover { 
+            background: #444; 
+        }
+        .modal { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: #2a2a2a; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 2px solid #00d4ff; 
+            max-width: 400px; 
+            z-index: 10;
+        }
+        .modal-title { 
+            font-size: 18px; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+            color: #00d4ff;
+        }
+        .modal-desc { 
+            font-size: 14px; 
+            line-height: 1.4;
+        }
+        .close-btn { 
+            position: absolute; 
+            top: 10px; 
+            right: 15px; 
+            background: none; 
+            border: none; 
+            color: #00d4ff; 
+            font-size: 20px; 
+            cursor: pointer;
+        }
+        .download-btn { 
+            background: #00d4ff; 
+            color: #000; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin: 10px 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokédex Project Images</h1>
+    <p>Click the download buttons to save each image:</p>
+    
+    <!-- Overview Image -->
+    <h2>1. Overview (Main Interface)</h2>
+    <div class="pokemon-interface" id="overview">
+        <div class="sidebar">
+            <h3 style="color: #00d4ff; margin-bottom: 15px;">Pokédex</h3>
+            <input type="text" class="search-bar" placeholder="E.g. 001 or Bulba...">
+            <ul class="pokemon-list">
+                <li class="pokemon-item selected">001 Bulbasaur</li>
+                <li class="pokemon-item">002 Ivysaur</li>
+                <li class="pokemon-item">003 Venusaur</li>
+                <li class="pokemon-item">004 Charmander</li>
+                <li class="pokemon-item">005 Charmeleon</li>
+                <li class="pokemon-item">006 Charizard</li>
+                <li class="pokemon-item">007 Squirtle</li>
+                <li class="pokemon-item">008 Wartortle</li>
+                <li class="pokemon-item">009 Blastoise</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="pokemon-number">#001</div>
+            <div class="pokemon-name">bulbasaur</div>
+            <div class="type-tags">
+                <span class="type-tag type-grass">grass</span>
+                <span class="type-tag type-poison">poison</span>
+            </div>
+            <div class="pokemon-image">🌱</div>
+            <div class="thumbnails">
+                <div class="thumbnail">🌱</div>
+                <div class="thumbnail">🌱</div>
+                <div class="thumbnail">🌱</div>
+                <div class="thumbnail">🌱</div>
+            </div>
+        </div>
+    </div>
+    <button class="download-btn" onclick="downloadImage('overview', 'overview.png')">Download overview.png</button>
+    
+    <!-- Search Image -->
+    <h2>2. Search Functionality</h2>
+    <div class="pokemon-interface" id="search">
+        <div class="sidebar">
+            <h3 style="color: #00d4ff; margin-bottom: 15px;">Pokédex</h3>
+            <input type="text" class="search-bar" placeholder="E.g. 001 or Bulba..." value="Char">
+            <ul class="pokemon-list">
+                <li class="pokemon-item">004 Charmander</li>
+                <li class="pokemon-item selected">005 Charmeleon</li>
+                <li class="pokemon-item">006 Charizard</li>
+                <li class="pokemon-item">007 Squirtle</li>
+                <li class="pokemon-item">008 Wartortle</li>
+                <li class="pokemon-item">009 Blastoise</li>
+                <li class="pokemon-item">010 Caterpie</li>
+                <li class="pokemon-item">011 Metapod</li>
+                <li class="pokemon-item">012 Butterfree</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="pokemon-number">#005</div>
+            <div class="pokemon-name">charmeleon</div>
+            <div class="type-tags">
+                <span class="type-tag type-fire">fire</span>
+            </div>
+            <div class="pokemon-image">🔥</div>
+            <div class="thumbnails">
+                <div class="thumbnail">🔥</div>
+                <div class="thumbnail">🔥</div>
+                <div class="thumbnail">🔥</div>
+                <div class="thumbnail">🔥</div>
+            </div>
+        </div>
+    </div>
+    <button class="download-btn" onclick="downloadImage('search', 'search.png')">Download search.png</button>
+    
+    <!-- Details Image -->
+    <h2>3. Detailed Pokémon Information</h2>
+    <div class="pokemon-interface" id="details">
+        <div class="sidebar">
+            <h3 style="color: #00d4ff; margin-bottom: 15px;">Pokédex</h3>
+            <input type="text" class="search-bar" placeholder="E.g. 001 or Bulba...">
+            <ul class="pokemon-list">
+                <li class="pokemon-item">002 Ivysaur</li>
+                <li class="pokemon-item">003 Venusaur</li>
+                <li class="pokemon-item">004 Charmander</li>
+                <li class="pokemon-item">005 Charmeleon</li>
+                <li class="pokemon-item selected">006 Charizard</li>
+                <li class="pokemon-item">007 Squirtle</li>
+                <li class="pokemon-item">008 Wartortle</li>
+                <li class="pokemon-item">009 Blastoise</li>
+                <li class="pokemon-item">010 Caterpie</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="pokemon-number">#006</div>
+            <div class="pokemon-name">charizard</div>
+            <div class="type-tags">
+                <span class="type-tag type-fire">fire</span>
+                <span class="type-tag type-flying">flying</span>
+            </div>
+            <div class="pokemon-image">🐉</div>
+            <div class="thumbnails">
+                <div class="thumbnail">🐉</div>
+                <div class="thumbnail">🐉</div>
+                <div class="thumbnail">🐉</div>
+                <div class="thumbnail">🐉</div>
+            </div>
+            <div class="stats">
+                <h4>Stats</h4>
+                <div class="stat-item"><span>Hp:</span><span>78</span></div>
+                <div class="stat-item"><span>Defense:</span><span>78</span></div>
+                <div class="stat-item"><span>Special Defense:</span><span>85</span></div>
+                <div class="stat-item"><span>Attack:</span><span>84</span></div>
+                <div class="stat-item"><span>Special Attack:</span><span>109</span></div>
+                <div class="stat-item"><span>Speed:</span><span>100</span></div>
+            </div>
+        </div>
+    </div>
+    <button class="download-btn" onclick="downloadImage('details', 'details.png')">Download details.png</button>
+    
+    <!-- Modal Image -->
+    <h2>4. Modal System</h2>
+    <div class="pokemon-interface" id="modal" style="position: relative;">
+        <div class="sidebar">
+            <h3 style="color: #00d4ff; margin-bottom: 15px;">Pokédex</h3>
+            <input type="text" class="search-bar" placeholder="E.g. 001 or Bulba...">
+            <ul class="pokemon-list">
+                <li class="pokemon-item">002 Ivysaur</li>
+                <li class="pokemon-item">003 Venusaur</li>
+                <li class="pokemon-item">004 Charmander</li>
+                <li class="pokemon-item selected">005 Charmeleon</li>
+                <li class="pokemon-item">006 Charizard</li>
+                <li class="pokemon-item">007 Squirtle</li>
+                <li class="pokemon-item">008 Wartortle</li>
+                <li class="pokemon-item">009 Blastoise</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="pokemon-number">#005</div>
+            <div class="pokemon-name">charmeleon</div>
+            <div class="type-tags">
+                <span class="type-tag type-fire">fire</span>
+            </div>
+            <div class="pokemon-image">🔥</div>
+            <div class="moves-grid">
+                <div class="move-button">Headbutt</div>
+                <div class="move-button">Tackle</div>
+                <div class="move-button">Body Slam</div>
+                <div class="move-button">Take Down</div>
+                <div class="move-button">Double Edge</div>
+                <div class="move-button">Growl</div>
+                <div class="move-button">Strength</div>
+                <div class="move-button">Mega Drain</div>
+            </div>
+        </div>
+        <div class="modal">
+            <button class="close-btn">&times;</button>
+            <div class="modal-title">Name: Headbutt</div>
+            <div class="modal-desc">The user sticks its head out and rams. It may make the foe flinch.</div>
+        </div>
+    </div>
+    <button class="download-btn" onclick="downloadImage('modal', 'modal.png')">Download modal.png</button>
+    
+    <!-- Mobile Image -->
+    <h2>5. Mobile Version</h2>
+    <div class="pokemon-interface" id="mobile" style="width: 400px; height: 600px; flex-direction: column;">
+        <div style="padding: 15px; background: #2a2a2a; color: white;">
+            <h3 style="color: #00d4ff; margin: 0 0 10px 0;">Pokédex</h3>
+            <input type="text" class="search-bar" placeholder="E.g. 001 or Bulba..." style="margin-bottom: 10px;">
+        </div>
+        <div style="flex: 1; padding: 15px; color: white;">
+            <div class="pokemon-number">#012</div>
+            <div class="pokemon-name">butterfree</div>
+            <div class="type-tags">
+                <span class="type-tag type-grass">bug</span>
+                <span class="type-tag type-flying">flying</span>
+            </div>
+            <div class="pokemon-image" style="width: 150px; height: 150px; margin: 0 auto 15px auto;">🦋</div>
+            <div class="thumbnails" style="justify-content: center;">
+                <div class="thumbnail">🦋</div>
+                <div class="thumbnail">🦋</div>
+                <div class="thumbnail">🦋</div>
+                <div class="thumbnail">🦋</div>
+            </div>
+        </div>
+    </div>
+    <button class="download-btn" onclick="downloadImage('mobile', 'mobile.png')">Download mobile.png</button>
+    
+    <script>
+        function downloadImage(elementId, filename) {
+            const element = document.getElementById(elementId);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size based on element
+            const rect = element.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            
+            // Use html2canvas if available, otherwise create a simple representation
+            if (typeof html2canvas !== 'undefined') {
+                html2canvas(element).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            } else {
+                // Fallback: create a simple colored rectangle
+                ctx.fillStyle = '#1a1a1a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Add text
+                ctx.fillStyle = '#00d4ff';
+                ctx.font = 'bold 24px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Pokédex Interface', canvas.width/2, canvas.height/2);
+                
+                const link = document.createElement('a');
+                link.download = filename;
+                link.href = canvas.toDataURL();
+                link.click();
+            }
+        }
+    </script>
+    
+    <!-- Include html2canvas for better image generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
