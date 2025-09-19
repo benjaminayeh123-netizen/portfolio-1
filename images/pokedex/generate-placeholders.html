@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Pokédex Placeholders</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+        .placeholder { 
+            width: 800px; height: 500px; 
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a); 
+            border: 2px solid #00d4ff; 
+            border-radius: 10px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            color: #00d4ff; 
+            font-size: 24px; 
+            font-weight: bold; 
+            margin: 20px 0;
+            text-align: center;
+        }
+        .thumbnail { 
+            width: 200px; height: 150px; 
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a); 
+            border: 2px solid #00d4ff; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #00d4ff; 
+            font-size: 14px; 
+            font-weight: bold; 
+            margin: 10px;
+            text-align: center;
+        }
+        .container { display: flex; flex-wrap: wrap; }
+        button { 
+            background: #00d4ff; 
+            color: #000; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokédex Project Placeholder Images</h1>
+    <p>Right-click on each image below and "Save image as" to create the placeholder files:</p>
+    
+    <h2>Main Images (800x500px)</h2>
+    <div class="placeholder" id="overview">
+        <div>🎮 Pokédex Explorer</div>
+        <div style="font-size: 16px; margin-top: 10px;">Interactive Pokémon Database</div>
+    </div>
+    
+    <h2>Thumbnail Images (200x150px)</h2>
+    <div class="container">
+        <div class="thumbnail" id="search">
+            <div>🔍 Search<br>Functionality</div>
+        </div>
+        <div class="thumbnail" id="details">
+            <div>📊 Pokémon<br>Details</div>
+        </div>
+        <div class="thumbnail" id="modal">
+            <div>💬 Modal<br>System</div>
+        </div>
+        <div class="thumbnail" id="mobile">
+            <div>📱 Mobile<br>Version</div>
+        </div>
+    </div>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Right-click on the main image above and "Save image as" → name it "overview.png"</li>
+        <li>Right-click on each thumbnail and save as:
+            <ul>
+                <li>search.png</li>
+                <li>details.png</li>
+                <li>modal.png</li>
+                <li>mobile.png</li>
+            </ul>
+        </li>
+        <li>Save all images in the pokedex folder</li>
+    </ol>
+    
+    <script>
+        // Add download functionality
+        function downloadImage(elementId, filename) {
+            const element = document.getElementById(elementId);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            if (elementId === 'overview') {
+                canvas.width = 800;
+                canvas.height = 500;
+            } else {
+                canvas.width = 200;
+                canvas.height = 150;
+            }
+            
+            // Draw the element to canvas
+            const computedStyle = getComputedStyle(element);
+            ctx.fillStyle = computedStyle.background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = '#00d4ff';
+            ctx.font = elementId === 'overview' ? 'bold 24px Arial' : 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            if (elementId === 'overview') {
+                ctx.fillText('🎮 Pokédex Explorer', canvas.width/2, canvas.height/2 - 20);
+                ctx.font = '16px Arial';
+                ctx.fillText('Interactive Pokémon Database', canvas.width/2, canvas.height/2 + 20);
+            } else {
+                const text = element.textContent.replace(/\n/g, ' ');
+                ctx.fillText(text, canvas.width/2, canvas.height/2);
+            }
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Add download buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const overview = document.getElementById('overview');
+            const button1 = document.createElement('button');
+            button1.textContent = 'Download overview.png';
+            button1.onclick = () => downloadImage('overview', 'overview.png');
+            overview.parentNode.insertBefore(button1, overview.nextSibling);
+            
+            ['search', 'details', 'modal', 'mobile'].forEach((id, index) => {
+                const element = document.getElementById(id);
+                const button = document.createElement('button');
+                button.textContent = `Download ${id}.png`;
+                button.onclick = () => downloadImage(id, `${id}.png`);
+                element.parentNode.insertBefore(button, element.nextSibling);
+            });
+        });
+    </script>
+</body>
+</html>

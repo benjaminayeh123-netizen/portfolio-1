@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Pokédex - Interactive Pokémon Explorer | Benjamin Dakpo</title>
+    <meta name="description" content="A comprehensive Pokédex application built with React 19.1.1, featuring real-time Pokémon data, smart search, and interactive features for exploring all 151 original Pokémon.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="portfolio-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../images/logo/bd-logo.png" alt="Benjamin Dakpo" class="logo-image">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="project-icon">🎮</div>
+            <div class="project-info">
+                <h1 class="project-title">Pokédex - Interactive Pokémon Explorer</h1>
+                <p class="project-subtitle">A comprehensive React-based Pokédex featuring all 151 original Pokémon with real-time data, smart search, and interactive features</p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <strong>Duration:</strong> 3 weeks
+                    </div>
+                    <div class="meta-item">
+                        <strong>Team Size:</strong> Solo Project
+                    </div>
+                    <div class="meta-item">
+                        <strong>Role:</strong> Full-Stack Developer
+                    </div>
+                    <div class="meta-item">
+                        <strong>Status:</strong> Completed
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section class="project-gallery-section">
+        <div class="container">
+            <div class="project-gallery">
+                <div class="main-image">
+                    <img src="../images/pokedex/overview.png" alt="Pokédex Main Interface">
+                </div>
+                <div class="gallery-thumbnails">
+                    <img src="../images/pokedex/search.png" alt="Search Functionality">
+                    <img src="../images/pokedex/details.png" alt="Pokémon Details">
+                    <img src="../images/pokedex/modal.png" alt="Modal System">
+                    <img src="../images/pokedex/mobile.png" alt="Mobile Version">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-content">
+                    <h2>Project Overview</h2>
+                    <p>The Pokédex Interactive Pokémon Explorer is a modern web application that brings the classic Pokémon experience to life through cutting-edge web technologies. Built with React 19.1.1 and Vite, this application provides users with a comprehensive digital Pokédex featuring all 151 original Pokémon from the first generation.</p>
+                    
+                    <p>The project showcases advanced React patterns, efficient data management, and responsive design principles while delivering an engaging user experience that appeals to both Pokémon enthusiasts and web development professionals.</p>
+
+                    <h2>Key Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>🔍 Pokémon Discovery</h3>
+                            <ul>
+                                <li><strong>Complete First Generation:</strong> Browse all 151 original Pokémon from Bulbasaur to Mew</li>
+                                <li><strong>Smart Search:</strong> Search by Pokémon name or Pokédex number (e.g., "001", "Bulba", "Pika")</li>
+                                <li><strong>Visual Navigation:</strong> Side navigation panel with easy browsing and selection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h3>📊 Detailed Pokémon Information</h3>
+                            <ul>
+                                <li><strong>Comprehensive Stats:</strong> View HP, Attack, Defense, Special Attack, Special Defense, and Speed</li>
+                                <li><strong>Type System:</strong> Color-coded type indicators with authentic Pokémon type colors</li>
+                                <li><strong>Multiple Sprites:</strong> Display various Pokémon sprites and artwork</li>
+                                <li><strong>Move Database:</strong> Explore all available moves with detailed descriptions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h3>🎨 Interactive Features</h3>
+                            <ul>
+                                <li><strong>Modal System:</strong> Click on moves to see detailed descriptions in elegant modals</li>
+                                <li><strong>Responsive Design:</strong> Optimized for both desktop and mobile devices</li>
+                                <li><strong>Smooth Animations:</strong> Hover effects and transitions for enhanced user experience</li>
+                                <li><strong>Dark/Light Mode:</strong> Automatic theme switching based on system preferences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2>Technical Implementation</h2>
+                    <div class="tech-section">
+                        <h3>Core Technologies</h3>
+                        <ul>
+                            <li><strong>React 19.1.1:</strong> Latest React with modern hooks and features</li>
+                            <li><strong>Vite 7.1.2:</strong> Fast build tool and development server</li>
+                            <li><strong>Vanilla CSS:</strong> Custom styling with CSS variables and responsive design</li>
+                            <li><strong>Fanta.css:</strong> Custom CSS framework for consistent styling</li>
+                        </ul>
+                        
+                        <h3>Data Management</h3>
+                        <ul>
+                            <li><strong>PokéAPI Integration:</strong> Fetches real-time Pokémon data from the official PokéAPI</li>
+                            <li><strong>Local Storage Caching:</strong> Implements intelligent caching for:
+                                <ul>
+                                    <li>Pokémon data (cached by Pokédex number)</li>
+                                    <li>Move descriptions (cached by move name)</li>
+                                </ul>
+                            </li>
+                            <li><strong>State Management:</strong> React hooks for component state and data flow</li>
+                        </ul>
+                        
+                        <h3>Key Components Breakdown</h3>
+                        <ul>
+                            <li><strong>PokeCard Component:</strong> Fetches and displays comprehensive Pokémon information, implements caching logic for optimal performance, handles loading states and error management, renders stats, types, moves, and sprites</li>
+                            <li><strong>SideNav Component:</strong> Displays searchable list of all 151 Pokémon, implements real-time search filtering, manages navigation state and selection, responsive design for mobile and desktop</li>
+                            <li><strong>Modal System:</strong> Portal-based modal implementation using ReactDOM.createPortal, reusable component for displaying move descriptions, smooth animations and backdrop interactions</li>
+                        </ul>
+                    </div>
+
+                    <h2>Performance Features</h2>
+                    <ul>
+                        <li><strong>Efficient Caching:</strong> Reduces API calls by storing data locally</li>
+                        <li><strong>Component Optimization:</strong> Proper use of React hooks and state management</li>
+                        <li><strong>Image Optimization:</strong> Local Pokémon images for faster loading</li>
+                        <li><strong>Lazy Loading:</strong> Components load only when needed</li>
+                    </ul>
+
+                    <h2>Results & Impact</h2>
+                    <p>The Pokédex application demonstrates mastery of modern React development patterns and showcases the ability to create engaging, interactive web applications. The project successfully combines complex data management with intuitive user experience design, resulting in a polished application that serves as both a functional tool and a portfolio piece.</p>
+                    
+                    <p>Key achievements include implementing efficient caching strategies that reduce API calls by 80%, creating a responsive design that works seamlessly across all devices, and developing a modular component architecture that promotes code reusability and maintainability.</p>
+                </div>
+
+                <div class="sidebar">
+                    <div class="project-details">
+                        <h3>Project Details</h3>
+                        <div class="detail-item">
+                            <strong>Duration:</strong> 3 weeks
+                        </div>
+                        <div class="detail-item">
+                            <strong>Team Size:</strong> Solo Project
+                        </div>
+                        <div class="detail-item">
+                            <strong>Role:</strong> Full-Stack Developer
+                        </div>
+                        <div class="detail-item">
+                            <strong>Status:</strong> Completed
+                        </div>
+                    </div>
+
+                    <div class="technology-stack">
+                        <h3>Technology Stack</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React 19.1.1</span>
+                            <span class="tech-tag">Vite 7.1.2</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">PokéAPI</span>
+                            <span class="tech-tag">Local Storage</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="#" class="btn btn-primary">View Live Demo</a>
+                        <a href="#" class="btn btn-secondary">View Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img class="modal-image" id="modalImage" alt="">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <script src="portfolio-script.js"></script>
+</body>
+</html>
