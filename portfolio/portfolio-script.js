@@ -12,12 +12,11 @@ function openImageModal(src, alt) {
     // Create new modal
     const modal = document.createElement('div');
     modal.id = 'imageModal';
-    modal.className = 'image-modal';
-    modal.style.display = 'block';
+    modal.className = 'image-modal show';
     modal.innerHTML = `
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <img class="modal-image" src="${src}" alt="${alt}" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block;">
+            <img class="modal-image" src="${src}" alt="${alt}">
             <div class="modal-caption">${alt}</div>
         </div>
     `;
