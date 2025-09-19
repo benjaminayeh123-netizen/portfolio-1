@@ -1,58 +1,58 @@
 // Image Modal functionality
 function openImageModal(src, alt) {
     console.log('Opening modal for:', src);
+    console.log('Image alt:', alt);
     
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('imageModal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'imageModal';
-        modal.className = 'image-modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="modal-close">&times;</span>
-                <img class="modal-image" src="" alt="">
-                <div class="modal-caption"></div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        
-        // Add event listeners
-        modal.querySelector('.modal-close').addEventListener('click', closeImageModal);
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeImageModal();
-            }
-        });
-        
-        // Close on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'block') {
-                closeImageModal();
-            }
-        });
+    // Remove existing modal if any
+    const existingModal = document.getElementById('imageModal');
+    if (existingModal) {
+        existingModal.remove();
     }
     
-    // Set image and caption
-    const modalImage = modal.querySelector('.modal-image');
-    const modalCaption = modal.querySelector('.modal-caption');
-    
-    modalImage.src = src;
-    modalImage.alt = alt;
-    modalCaption.textContent = alt;
-    
-    // Show modal
+    // Create new modal
+    const modal = document.createElement('div');
+    modal.id = 'imageModal';
+    modal.className = 'image-modal';
     modal.style.display = 'block';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img class="modal-image" src="${src}" alt="${alt}" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block;">
+            <div class="modal-caption">${alt}</div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
     document.body.style.overflow = 'hidden';
     
-    console.log('Modal should be visible now');
+    // Add event listeners
+    const closeBtn = modal.querySelector('.modal-close');
+    closeBtn.addEventListener('click', closeImageModal);
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeImageModal();
+        }
+    });
+    
+    // Close on Escape key
+    const escapeHandler = function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+            document.removeEventListener('keydown', escapeHandler);
+        }
+    };
+    document.addEventListener('keydown', escapeHandler);
+    
+    console.log('Modal created and should be visible');
 }
 
 function closeImageModal() {
     const modal = document.getElementById('imageModal');
     if (modal) {
-        modal.style.display = 'none';
+        modal.remove();
         document.body.style.overflow = 'auto';
+        console.log('Modal closed and removed');
     }
 }
 
@@ -73,10 +73,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click handlers for all images (main and thumbnails)
     const allImages = document.querySelectorAll('.main-image img, .gallery-thumbnails img');
-    allImages.forEach(img => {
-        img.addEventListener('click', function() {
+    console.log('Found images for modal:', allImages.length);
+    
+    allImages.forEach((img, index) => {
+        console.log(`Image ${index + 1}:`, img.src, img.alt);
+        img.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Image clicked:', this.src, this.alt);
             openImageModal(this.src, this.alt);
         });
+        
+        // Add cursor pointer to indicate clickable
+        img.style.cursor = 'pointer';
     });
 });
 
